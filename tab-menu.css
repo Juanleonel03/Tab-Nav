@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Prompt', sans-serif;
+    --white: #fff;
+    --gray: rgb(123, 136, 157);
+    --Ziggurat: rgb(173, 206, 218, 1);
+    --span-color: rgb(13, 63, 82, 1);
+}
+
+body {
+    background-color: var(--Ziggurat);
+    outline: hidden;
+}
+
+.main {
+    max-width: 700px;
+    width: 100%;
+    margin: 250px auto;
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.header {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.nav-tab {
+    position: relative;
+    font-size: 18px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-tab label {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    color: var(--span-color);
+    z-index: 1;
+    position: relative;
+}
+
+.nav-tab label i {
+    padding-right: 7px;
+}
+
+.slide{
+    position: absolute;
+    height: 100%;
+    width: 20%;
+    background-color: var(--Ziggurat);
+    border-radius: 8px;
+    z-index: 0;
+    left: 17.5px;
+    bottom: 0;
+    transition: 600ms;
+}
+input{
+    display: none;
+}
+
+#messages:checked ~ .nav-tab .slide{
+    left:27.5% ;
+}
+
+#search:checked ~ .nav-tab .slide{
+    left:52.5% ;
+}
+
+#widgets:checked ~ .nav-tab .slide{
+    left:77.5% ;
+}
+
+@media(max-width: 550px){
+    .nav-tab{
+        justify-content: space-evenly;
+        display: flex;
+        font-size: 13px;
+    }
+    
+    .slide{
+        left: 10.5px;
+    }
+    
+    #messages:checked ~ .nav-tab .slide{
+        width: 90px;
+        left:24.7% ;
+    }
+    
+    #search:checked ~ .nav-tab .slide{
+        left:52.5% ;
+    }
+    
+    #widgets:checked ~ .nav-tab .slide{
+        left:74.5% ;
+        width: 90px;
+    }
+
+}
+
+@media(max-width:379px){
+    .nav-tab label span{
+        display: none;
+    }
+    
+    .slide{
+        left: 3.5px;
+    }
+    
+    #messages:checked ~ .nav-tab .slide{
+        width: 50px;
+        left:26.5% ;
+    }
+    
+    #search:checked ~ .nav-tab .slide{
+        left:51.7% ;
+    }
+    
+    #widgets:checked ~ .nav-tab .slide{
+        left:76.5% ;
+        width: 50px;
+    }
+}
